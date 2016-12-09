@@ -5,14 +5,14 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
-public class Starter<T> {
+public class Processor<T> {
 
     @Inject
     private Service<T> service;
 
     @PostConstruct
     @SuppressWarnings("unchecked")
-    public void start() {
+    public void process() {
         if(service.getClass() == StringService.class) {
             System.out.println(service.process((T)"Hello Spring!"));
         } else {
